@@ -101,7 +101,7 @@ def product_sell(request, product_id):
     item_product.save()
                                 
     messages.success(request,'Sản phẩm đã được bán thành công!')
-    return redirect('/')
+    return redirect('/manage')
 
 
 def logout_view(request):

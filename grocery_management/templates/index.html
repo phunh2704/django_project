@@ -7,12 +7,14 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
+    <meta http-equiv="refresh" content="30">
     <title>Quản Lý Tạp Hóa</title>
     <!-- Link to Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
   </head>
 
   <body>
@@ -22,23 +24,23 @@
         <div class="mb-5 d-flex justify-content-end align-items-end">
           
 
-          <a href="/manage" class="btn btn-info">Quản Lý</a>
+          <a href="/manage" class="btn btn-info"><i class="fa-solid fa-gear"></i> Quản Lý</a>
           {% comment %} {% include 'product_create.html' %} {% endcomment %}
         </div>
         <!-- <div class="text-right">
           <h5>Tổng doanh thu: {{total_revenue|intcomma}}</h5>
           <h5>Tổng lợi nhuận: {{total_profit|intcomma}}</h5>
         </div> -->
-        <table class="table text-center mt-5">
+        <table class="table text-center mt-5 table-hover">
           <thead>
-            <tr>
+            <tr class="table-primary">
               <th>Tên hàng hóa</th>
               <th>Giá mua</th>
               <th>Giá bán</th>
               <th>Số lượng trong kho</th>
               <th>Số lượng đã bán</th>
               {% comment %} <th>Thao tác</th> {% endcomment %}
-              <th>Bán sản phẩm</th>
+              {% comment %} <th>Bán sản phẩm</th> {% endcomment %}
             </tr>
           </thead>
           <tbody>
@@ -62,7 +64,7 @@
                   >Xóa</a
                 >
               </td> {% endcomment %}
-              <td>
+              {% comment %} <td>
                 <form
                   method="get"
                   action="/sell/{{item.id}}/"
@@ -83,7 +85,7 @@
                     Bán
                   </button>
                 </form>
-              </td>
+              </td> {% endcomment %}
             </tr>
             {% endfor %}
           </tbody>
@@ -98,6 +100,10 @@
           {% for mes in messages %} {{mes}} {% endfor %}
         </div>
         {% endif %}
+        <div class="d-flex flex-column align-items-end text-right">
+          <h5>Tổng doanh thu: {{total_revenue|intcomma}}</h5>
+          <h5>Tổng lợi nhuận: {{total_profit|intcomma}}</h5>
+        </div>
       </div>
     </div>
     <!-- Scripts for Bootstrap JS -->
@@ -110,6 +116,9 @@
         const elem = document.getElementById("alert");
         elem.parentNode.removeChild(elem);
       }, 2000);
+      window.setTimeout( function() {
+        window.location.reload();
+      }, 5000);
     </script>
   </body>
 </html>
