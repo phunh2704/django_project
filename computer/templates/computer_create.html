@@ -1,0 +1,115 @@
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-success"
+  data-bs-toggle="modal"
+  data-bs-target="#create_product"
+>
+<i class="fa-solid fa-plus"></i> Thêm sản phẩm
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="create_product"
+  tabindex="-1"
+  aria-labelledby="create_productLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1
+          class="modal-title fs-5"
+          id="create_productLabel"
+        >
+        Thêm sản phẩm
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          method="post"
+          action="/create/"
+        >
+          {% csrf_token %}
+          <div class="mb-3">
+            <label
+              for="name"
+              class="form-label"
+              >Tên hàng hóa:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label
+              for="purchase_price"
+              class="form-label"
+              >Giá mua:</label
+            >
+            <input
+              type="number"
+              step="100"
+              class="form-control"
+              name="price_purchase"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label
+              for="selling_price"
+              class="form-label"
+              >Giá bán:</label
+            >
+            <input
+              type="number"
+              step="100"
+              class="form-control"
+              name="price_selling"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label
+              for="quantity"
+              class="form-label"
+              >Số lượng trong kho:</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              name="quantity"
+              required
+            />
+          </div>          
+        
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary btn-lg"
+          data-bs-dismiss="modal"
+        >
+          Đóng
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary btn-lg"
+        >
+          Thêm
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
