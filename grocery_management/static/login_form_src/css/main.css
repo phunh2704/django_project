@@ -174,10 +174,16 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 20px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  background: #4CAF50;
+  background: -webkit-linear-gradient(right, #00dbde, #4CAF50, #00dbde, #4CAF50);
+  background: -o-linear-gradient(right, #00dbde, #4CAF50, #00dbde, #4CAF50);
+  background: -moz-linear-gradient(right, #00dbde, #4CAF50, #00dbde, #4CAF50);
+  background: linear-gradient(right, #00dbde, #4CAF50, #00dbde, #4CAF50);
 }
 
 .wrap-login100 {
@@ -225,14 +231,14 @@ iframe {
 
 .input100 {
   font-family: Poppins-Bold;
-  font-size: 20px;
+  font-size: 15px;
   color: #333333;
   line-height: 1.2;
   display: block;  
   width: 100%;
   height: 55px;
   background: transparent;
-  padding: 0 7px 0 43px;
+  padding: 25px 10px 0 43px;
 }
 
 
@@ -293,11 +299,13 @@ iframe {
 }
 
 .input100:focus + .focus-input100::after {
-  color: #a64bf4;
+  color: #4CAF50;
 }
 
 .has-val.input100 + .focus-input100::after {
-  color: #a64bf4;
+  /* color: #a64bf4; */
+  color: #4CAF50;
+  
 }
 
 
@@ -334,11 +342,18 @@ iframe {
   z-index: -1;
   width: 300%;
   height: 100%;
-  background: #a64bf4;
+  /* background: #a64bf4;
   background: -webkit-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
   background: -o-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
   background: -moz-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
-  background: linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
+  background: linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff); */
+
+  background: #4CAF50;
+  background: -webkit-linear-gradient(right, #00dbde, #4CAF50, #00dbde, #4CAF50);
+  background: -o-linear-gradient(right, #00dbde, #4CAF50, #00dbde, #4CAF50);
+  background: -moz-linear-gradient(right, #00dbde, #4CAF50, #00dbde, #4CAF50);
+  background: linear-gradient(right, #00dbde, #4CAF50, #00dbde, #4CAF50);
+
   top: 0;
   left: -100%;
 
