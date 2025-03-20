@@ -1,0 +1,52 @@
+
+.btnAdd {
+      text-align: right;
+      width: 90%;
+      margin-bottom: 20px;
+}
+
+.main{
+      margin-top: 50px;
+}
+.tieude{
+      text-align: center;
+      color: #1bbd36;
+      padding: 15px 0;
+}
+.tieude2{
+      text-align: center;
+}
+
+.xemtieude{
+      text-align: center;
+      color: #1bbd36;
+      padding: 0px 0;
+}
+.xemtieude2{
+      text-align: center;
+}
+
+
+.danhsach{
+    
+      box-shadow: 0 0 24px 0 rgb(0 0 0 / 12%);
+      padding: 30px;
+      background: #fff;
+      display: inline-block;
+
+}
+/* .table{
+      width: 100%;
+      text-align: center;
+      border: 1px solid #000;
+      box-shadow: 0 0 24px 0 rgb(0 0 0 / 12%);
+      margin: 0 auto;
+} */
+
+.tableEdit{
+      margin-top: 80px;
+
+}
+
+
+

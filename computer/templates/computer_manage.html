@@ -1,47 +1,127 @@
 {% extends "base.html" %}
 {% block manage %}
-<h1>Danh Sách Máy Tính</h1>
-        <div class="mb-5 d-flex justify-content-end align-items-end gap-2">          
-          <a href="/computer" class="btn btn-primary"><i class="fa-solid fa-house"></i> Trang Chủ</a>
-          {% include 'computer_create.html' %}
-          <a href="/logout" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Thoát</a>
+      <h2 class="text-center mt-3 mb-3 text-success">THÔNG TIN CHI TIẾT MÁY TÍNH - TBS AN GIANG</h2>
+      <div class="container-fluid d-flex justify-content-end gap-2">        
+        <a href="/computer" class="btn btn-primary"><i class="fa-solid fa-home"></i> Trang Chủ</a>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#create_product"><i class="fa-solid fa-plus"></i> Thêm máy tính</button>
+        <a href="/logout" class="btn btn-danger"><i class="fa-solid fa-gears"></i> Thoát</a>
+      </div>
+        <div class="container-fluid d-flex justify-content-center flex-column">
+            <table class="table border border-success border-3" id="dataTable" cellspacing="0" data-order='[[ 1, "asc" ]]' data-page-length='10'>
+              <thead>
+                          <tr>
+                              <th>ID</th>
+                              <th>PC NAME</th>
+                              <th>USERNAME</th>
+                              <th>MSNV</th>
+                              <th>HỌ TÊN</th>
+                              <th>VỊ TRÍ CV</th>
+                              <th>PHÒNG BAN</th>
+                              <th>GHI CHÚ</th>
+                              <th>THAO TÁC</th>
+                          </tr>
+              </thead>                      
+                      <tbody>
+                        {% for item in computer %}
+                        <tr>
+                          <td>{{item.id}}</td>
+                          <td>{{item.pcname}}</td>
+                          <td>{{item.username}}</td>
+                          <td>{{item.userid}}</td>
+                          <td>{{item.name}}</td>
+                          <td>{{item.job}}</td>              
+                          <td>{{item.department}}</td>
+                          <td>{{item.note}}</td>
+                          <td>
+                            <a href="/computer/update/{{item.pcname}}/" class="btn btn-info btn-sm">Sửa</a>
+                            <a href="/computer/delete/{{item.pcname}}/" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')">Xóa</a>
+                          </td>               
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                  </table>
+                  {% if messages %}
+                  <div id="alert" class="alert alert-success fade show text-center mt-3" role="alert">
+                    {% for mes in messages %} {{mes}} {% endfor %}
+                  </div>
+                  {% endif %}
         </div>
-        
-        <table class="table text-center mt-5 table-hover">
-          <thead>
-            <tr class="table-primary">
-              <th>PC Name</th>
-              <th>User</th>
-              <th>MSNV</th>
-              <th>Họ Tên</th>
-              <th>Vị Trí CV</th>
-              <th>Phòng Ban</th>
-              <th>Ghi Chú</th>
-              <th>Thao Tác</th>             
-            </tr>
-          </thead>
-          <tbody>
-            {% for item in computer %}
-            <tr>
-              <td>{{item.pcname}}</td>
-              <td>{{item.username}}</td>
-              <td>{{item.userid}}</td>
-              <td>{{item.name}}</td>
-              <td>{{item.job}}</td>              
-              <td>{{item.department}}</td>
-              <td>{{item.note}}</td>
-              <td>
-                <a href="/computer/update/{{item.pcname}}/" class="btn btn-info btn-sm">Sửa</a>
-                <a href="/computer/delete/{{item.pcname}}/" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')">Xóa</a>
-              </td>               
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
 
-        {% if messages %}
-        <div id="alert" class="alert alert-success fade show" role="alert">
-          {% for mes in messages %} {{mes}} {% endfor %}
-        </div>
-        {% endif %}        
+              <!-- Modal -->
+        <div class="modal fade" id="create_product" tabindex="-1" aria-labelledby="create_productLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="create_productLabel">Thêm Máy Tính</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form method="post" action="">
+                  {% csrf_token %}
+                  <div class="mb-3">
+                    <label for="name" class="form-label">PC Name:</label>
+                    <input type="text"class="form-control" name="pcname" autofocus required/>
+                  </div>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">User:</label>
+                    <input type="text"class="form-control" name="username"/>
+                  </div>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">MSNV:</label>
+                    <input type="text"class="form-control" name="userid"/>
+                  </div>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Họ Tên:</label>
+                    <input type="text"class="form-control" name="name"/>
+                  </div>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Vị Trí CV:</label>
+                    <input type="text"class="form-control" name="job"/>
+                  </div>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Phòng Ban:</label>
+                    <input type="text"class="form-control" name="department"/>
+                  </div>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Ghi Chú:</label>
+                    <input type="text"class="form-control" name="note"/>
+                  </div>
+                                  
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn btn-success btn-lg">Thêm mới</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div> 
+        
+    
+    <!-- <script>
+      setTimeout(() => {
+        const elem = document.getElementById("alert");
+        elem.parentNode.removeChild(elem);
+      }, 2000);
+      window.setTimeout( function() {
+        window.location.reload();
+      }, 5000);
+    </script> -->
 {% endblock manage %}
+{% block script_manage %}
+<script>
+  $(document).ready(function() {
+  $('#dataTable').DataTable( {
+      // dom: 'Bfrtip',
+      buttons: [
+          'copy',  'excel', 'pdf'
+      ],
+      layout: {
+        topStart: 'buttons'
+      },
+      select: true,      
+      ordering:  false,
+  } );
+} );
+</script>
+{% endblock script_manage %}

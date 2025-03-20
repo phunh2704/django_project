@@ -1,38 +1,46 @@
 {% extends "base.html" %}
 {% block index %}
-<h1>Danh Sách Máy Tính</h1>
-        <div class="mb-5 d-flex justify-content-end align-items-end gap-2">          
-          <a href="/computer/manage" class="btn btn-primary"><i class="fa-solid fa-gear"></i> Quản Lý</a>          
-          {% comment %} {% include 'product_create.html' %} {% endcomment %}
+      <h2 class="text-center mt-3 mb-3 text-success">THÔNG TIN CHI TIẾT MÁY TÍNH - TBS AN GIANG</h2>      
+      <div class="container-fluid d-flex justify-content-end">
+        <a href="/computer/manage" class="btn btn-primary"><i class="fa-solid fa-gears"></i> Quản lý</a>
+      </div>
+        <div class="container-fluid">
+            <table class="table border border-success border-3" id="dataTable" cellspacing="0" data-order='[[ 1, "asc" ]]' data-page-length='10'>
+              <thead>
+                          <tr>
+                              <th>ID</th>
+                              <th>PC NAME</th>
+                              <th>USERNAME</th>
+                              <th>MSNV</th>
+                              <th>HỌ TÊN</th>
+                              <th>VỊ TRÍ CV</th>
+                              <th>PHÒNG BAN</th>
+                              <th>GHI CHÚ</th>
+                              <!-- <th>THAO TÁC</th> -->
+                          </tr>
+              </thead>                      
+                      <tbody>
+                        {% for item in computer %}
+                        <tr>
+                          <td>{{item.id}}</td>
+                          <td>{{item.pcname}}</td>
+                          <td>{{item.username}}</td>
+                          <td>{{item.userid}}</td>
+                          <td>{{item.name}}</td>
+                          <td>{{item.job}}</td>              
+                          <td>{{item.department}}</td>
+                          <td>{{item.note}}</td>
+                          <!-- <td>
+                            <a href="/computer/update/{{item.pcname}}/" class="btn btn-info btn-sm">Sửa</a>
+                            <a href="/computer/delete/{{item.pcname}}/" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')">Xóa</a>
+                          </td>                -->
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                  </table>
         </div>
-        
-        <table class="table text-center mt-5 table-hover">
-          <thead>
-            <tr class="table-primary">
-              <th>PC Name</th>
-              <th>User</th>
-              <th>MSNV</th>
-              <th>Họ Tên</th>
-              <th>Vị Trí CV</th>
-              <th>Phòng Ban</th>
-              <th>Ghi Chú</th>              
-            </tr>
-          </thead>
-          <tbody>
-            {% for item in computer %}
-            <tr>
-              <td>{{item.pcname}}</td>
-              <td>{{item.username}}</td>
-              <td>{{item.userid}}</td>
-              <td>{{item.name}}</td>
-              <td>{{item.job}}</td>              
-              <td>{{item.department}}</td>
-              <td>{{item.note}}</td>              
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
 
+        
         <!-- {% if messages %}
         <div
           id="alert"
@@ -53,3 +61,22 @@
       }, 5000);
     </script> -->
 {% endblock index %}
+{% block script_index %}
+<script>
+  $(document).ready(function() {
+  $('#dataTable').DataTable( {
+    // dom: 'Bfrtip',
+    buttons: [
+        'copy', 'excel', 'pdf'
+    ],
+    layout: {
+        topStart: 'buttons'
+    },
+    paging: false,
+    select: true,    
+    ordering:  false,   
+      
+  } );
+} );
+</script>
+{% endblock script_index %}

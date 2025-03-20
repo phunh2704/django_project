@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block manage %}
-
-        <h1 class="mb-5">Cập Nhật Thông Tin Máy Tính</h1>
+      <div class="container d-flex justify-content-center">
+        <div class="col-md-5 p-3 border border-success rounded-4 border-3">
+        <h2 class="mb-4 text-center border-bottom border-1 border-black pb-2">Cập Nhật Thông Tin Máy Tính</h2>
         <form method="post" action="/computer/update/{{computer.pcname}}/">
             {% csrf_token %}
             <div class="mb-3">
@@ -32,9 +33,10 @@
               <label for="name" class="form-label">Ghi Chú:</label>
               <input type="text"class="form-control" name="note" value="{{computer.note}}"/>
             </div>
-                             
-          <a href="/computer/manage" class="btn btn-danger mr-1">Quay Lại</a>
-          <button type="submit" class="btn btn-info">Cập Nhật</button>        
+            <div class="mb-3 d-flex justify-content-end gap-2">              
+            <a href="/computer/manage" class="btn btn-danger mr-1">Quay Lại</a>
+            <button type="submit" class="btn btn-info">Cập Nhật</button>        
+            </div>    
         </form>
       </div>
     </div>
