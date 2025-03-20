@@ -25,7 +25,7 @@ def index(request):
     return render(request, 'computer_index.html',{'computer': computer})
 
 @login_required
-def computer_list(request):
+def computer_manage(request):
     computer = Computer.objects.all()    
 
     if request.method == 'POST':
@@ -43,7 +43,7 @@ def computer_list(request):
         messages.success(request,'Máy tính đã được thêm thành công!')
         return redirect('/computer/manage')
     
-    return render(request, 'computer_list.html',{'computer': computer})
+    return render(request, 'computer_manage.html',{'computer': computer})
 
 @login_required
 def computer_update(request, pcname):
