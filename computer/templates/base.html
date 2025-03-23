@@ -16,10 +16,12 @@
     <link rel="stylesheet" type="text/css" href="{% static 'computer_table/css/buttons.dataTables.min.css' %}"> -->
     
   </head>
-  <body>
-    <div class="mt-5" >
-        <div class="container-fluid">
-          
+  <body> 
+    
+    <div class="container-fluid h-10 mb-3 text-white bg-success fs-5">
+      <img src="{% static 'images/tbsgroup.png'%}" width="70px" height="70px" class="left-0">
+      QUẢN LÝ MÁY TÍNH - TỔ HỢP TX THOẠI SƠN - TBS AN GIANG
+    </div>    
             {% block index %}
             {% endblock index %}
             {% block manage %}
@@ -27,8 +29,7 @@
             {% block viewpc %}
             {% endblock viewpc %}
 
-        </div>
-    </div>
+ 
     <!-- Scripts for Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
