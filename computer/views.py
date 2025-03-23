@@ -72,6 +72,12 @@ def computer_delete(request, pcname):
     messages.success(request,'Xóa máy tính thành công!')
     return redirect('/computer/manage')
 
+@login_not_required
+def computer_view(request, pcname):
+    computer = Computer.objects.get(pcname=pcname)
+    return render(request, 'computer_view.html',{
+        'computer': computer
+    })
 class SiteLoginView(LoginView):
      template_name = 'login.html'
 def logout_view(request):

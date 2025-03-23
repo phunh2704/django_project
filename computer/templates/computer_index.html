@@ -16,7 +16,7 @@
                               <th>VỊ TRÍ CV</th>
                               <th>PHÒNG BAN</th>
                               <th>GHI CHÚ</th>
-                              <!-- <th>THAO TÁC</th> -->
+                              <th>Chi Tiết</th>
                           </tr>
               </thead>                      
                       <tbody>
@@ -30,10 +30,7 @@
                           <td>{{item.job}}</td>              
                           <td>{{item.department}}</td>
                           <td>{{item.note}}</td>
-                          <!-- <td>
-                            <a href="/computer/update/{{item.pcname}}/" class="btn btn-info btn-sm">Sửa</a>
-                            <a href="/computer/delete/{{item.pcname}}/" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')">Xóa</a>
-                          </td>                -->
+                          <td><a href="/computer/{{item.pcname}}/" class="btn btn-success">Xem</a></td>
                         </tr>
                         {% endfor %}
                       </tbody>
