@@ -1,5 +1,5 @@
 {% load static %}
-<html lang="en" data-bs-theme="light">
+<html lang="en" >
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>    
@@ -16,11 +16,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'computer_table/css/buttons.dataTables.min.css' %}"> -->
     
   </head>
-  <body> 
+  <body data-bs-theme="light"> 
     
-    <div class="container-fluid h-10 mb-3 text-white bg-success fs-5">
+    <div class="container-fluid d-flex align-items-center h-10 mb-3 text-white bg-success fs-5">
       <img src="{% static 'images/tbsgroup.png'%}" width="70px" height="70px">
-      QUẢN LÝ MÁY TÍNH - TỔ HỢP TX THOẠI SƠN - TBS AN GIANG
+      QUẢN LÝ MÁY TÍNH - TỔ HỢP TX THOẠI SƠN - TBS AN GIANG      
     </div>    
             {% block index %}
             {% endblock index %}

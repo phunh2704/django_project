@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block manage %}    
-      <div class="container-fluid d-flex justify-content-end gap-2">        
+      <div class="container-fluid d-flex justify-content-end align-items-center gap-2">        
         <a href="/computer" class="btn btn-primary"><i class="fa-solid fa-home"></i> Trang Chủ</a>
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#create_product"><i class="fa-solid fa-plus"></i> Thêm máy tính</button>
         <a href="/logout" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Thoát</a>
+        <div class="form-check form-switch mx-4"><input type="checkbox" class="form-check-input p-2" role="switch" id="flexSwitchCheckChecked" checked onclick="dark_mode()">Dark/Light Mode</div>
       </div>
         <div class="container-fluid d-flex justify-content-center flex-column">
             <table class="table border border-success border-3 align-middle" id="dataTable" cellspacing="0" data-order='[[ 1, "asc" ]]' data-page-length='10'>
@@ -124,5 +125,9 @@
       responsive: true
   } );
 } );
+function dark_mode(){
+  var element = document.body;
+  element.dataset.bsTheme = element.dataset.bsTheme == "light" ? "dark" : "light";
+}
 </script>
 {% endblock script_manage %}
