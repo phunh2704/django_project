@@ -6,38 +6,38 @@
 
     <div class="container-fluid d-flex justify-content-center align-items-center">
         <div class="col-md-5 border border-success border-3 rounded-3">            
-            <div class="p-2 d-flex align-items-center bg-success">
+            <div class="p-2 d-flex justify-content-start align-items-center bg-success">
                 <img src="{% static 'images/tbsgroup.png'%}" width="100px" height="100px">
                 <div class="container-fluid"><h1 class="text-center text-white">Thông Tin Máy Tính</h1></div>
             </div>
-            <table class="table"> 
+            <table class="table m-0 table-success table-hover fs-2"> 
                 <tr>
-                    <th><h3>PC NAME</h3></th>                
-                    <th><h3 class="text-primary">{{computer.pcname}}</h3></th>                                    
+                    <td>PC NAME</td>                
+                    <td class="text-primary">{{computer.pcname}}</td>                                    
                 </tr>
                 <tr>
-                    <th><h3>USER</h3></th>                
-                    <th><h3 class="text-danger">{{computer.username}}</h3></th>                                    
+                    <td>USER</td>                
+                    <td class="text-danger">{{computer.username}}</td>                                    
                 </tr>
                 <tr>
-                    <th><h3>MSNV</h3></th>                
-                    <th><h3>{{computer.userid}}</h3></th>                                    
+                    <td>MSNV</td>                
+                    <td>{{computer.userid}}</td>                                    
                 </tr>
                 <tr>
-                    <th><h3>HỌ TÊN</h3></th>                
-                    <th><h3>{{computer.name}}</h3></th>                                    
+                    <td>HỌ TÊN</td>                
+                    <td>{{computer.name}}</td>                                    
                 </tr>
                 <tr>
-                    <th><h3>CÔNG VIỆC</h3></th>                
-                    <th><h3>{{computer.job}}</h3></th>                                    
+                    <td>CÔNG VIỆC</td>                
+                    <td>{{computer.job}}</td>                                    
                 </tr>
                 <tr>
-                    <th><h3>PHÒNG BAN</h3></th>                
-                    <th><h3>{{computer.department}}</h3></th>                                    
+                    <td>PHÒNG BAN</td>                
+                    <td>{{computer.department}}</td>                                    
                 </tr>
                 <tr>
-                    <th><h3>GHI CHÚ</h3></th>                
-                    <th><h3>{{computer.note}}</h3></th>                                    
+                    <td>GHI CHÚ</td>                
+                    <td>{{computer.note}}</td>                                    
                 </tr>
             </table>    
         </div>
