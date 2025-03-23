@@ -15,7 +15,7 @@
                               <th>VỊ TRÍ CV</th>
                               <th>PHÒNG BAN</th>
                               <th>GHI CHÚ</th>
-                              <th>Chi Tiết</th>
+                              
                           </tr>
               </thead>                      
                       <tbody>
@@ -29,7 +29,7 @@
                           <td>{{item.job}}</td>              
                           <td>{{item.department}}</td>
                           <td>{{item.note}}</td>
-                          <td><a href="/computer/{{item.pcname}}/" class="btn btn-success">Xem</a></td>
+                          
                         </tr>
                         {% endfor %}
                       </tbody>
@@ -70,7 +70,7 @@
     },
     paging: false,
     select: true,    
-    ordering:  false,   
+    ordering:  true,   
     responsive: true
   } );
 } );
