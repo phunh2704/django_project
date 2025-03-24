@@ -17,11 +17,34 @@
     
   </head>
   <body data-bs-theme="light"> 
-    
-    <div class="container-fluid d-flex align-items-center h-10 mb-3 text-white bg-success fs-5">
-      <img src="{% static 'images/tbsgroup.png'%}" width="70px" height="70px">
-      QUẢN LÝ MÁY TÍNH - TỔ HỢP TX THOẠI SƠN - TBS AN GIANG      
-    </div>    
+    <div class="row justify-content-between bg-success pb-2">
+      <div class="d-flex justify-content-center align-items-center dt-layout-start col-md-auto me-auto fs-5 fw-bold text-white text-center">
+        <img src="{% static 'images/tbsgroup.png'%}" width="80px" height="80px" class="img-fluid ms-3" />
+        <div class="container">QUẢN LÝ MÁY TÍNH<br>TH TX THOẠI SƠN</div>
+      </div>
+      <div class="d-flex flex-wrap justify-content-center align-items-center dt-layout-end col-md-auto ms-auto gap-2">
+          {% block nav_button %}
+          {% endblock nav_button %}
+      </div>
+    </div>
+
+
+
+
+
+
+    {% comment %} <div class="container-fluid d-flex align-items-center bg-success">
+      <div class="container-fluid d-flex align-items-center text-white fs-5 fw-bold">
+      <img src="{% static 'images/tbsgroup.png'%}" width="70px" height="70px" class="img-fluid" />
+      QUẢN LÝ MÁY TÍNH - TH TX THOẠI SƠN      
+      </div>   
+
+      <div class="container d-flex align-items-center justify-content-end">   
+      {% block nav_button %}
+      {% endblock nav_button %}
+      </div>
+    </div>  {% endcomment %}
+      
             {% block index %}
             {% endblock index %}
             {% block manage %}
