@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block nav_button %}          
   <a href="/computer" class="btn btn-success"><img src="{% static 'icons/home.png' %}" alt="home" width="30px" height="25px"> Trang Chủ</a>
   <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#create_product"><img src="{% static 'icons/add.png' %}" alt="add" width="30px" height="25px"> Thêm PC</button>
@@ -35,9 +36,9 @@
                           <td>{{item.department}}</td>
                           <td>{{item.note}}</td>
                           <td>
-                            <a href="/computer/{{item.pcname}}/"><img src="{% static 'icons/detail.png' %}" alt="detail" width="30px" height="25px"></a>
-                            <a href="/computer/update/{{item.pcname}}/"><img src="{% static 'icons/edit.png' %}" alt="edit" width="30px" height="25px"></a>
-                            <a href="/computer/delete/{{item.pcname}}/" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')"><img src="{% static 'icons/remove.png' %}" alt="remove" width="25px" height="25px"></a>
+                            <a href="/computer/{{item.pcname}}/"><img src="{% static 'icons/detail.png' %}" alt="detail" width="20px" height="20px"></a>
+                            <a href="/computer/update/{{item.pcname}}/"><img src="{% static 'icons/edit.png' %}" alt="edit" width="20px" height="20px"></a>
+                            <a href="/computer/delete/{{item.pcname}}/" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')"><img src="{% static 'icons/remove.png' %}" alt="remove" width="20px" height="20px"></a>
                           </td>               
                         </tr>
                         {% endfor %}
@@ -101,36 +102,28 @@
         </div> 
         
     
-    <!-- <script>
-      setTimeout(() => {
-        const elem = document.getElementById("alert");
-        elem.parentNode.removeChild(elem);
-      }, 2000);
-      window.setTimeout( function() {
-        window.location.reload();
-      }, 5000);
-    </script> -->
+
 {% endblock manage %}
 {% block script_manage %}
 <script>
   $(document).ready(function() {
-  $('#dataTable').DataTable( {
-      // dom: 'Bfrtip',
-      buttons: [
-          'copy',  'excel', 'pdf'
-      ],
-      layout: {
-        topStart: 'buttons'
-      },
-      select: true,      
-      paging: true,
-      ordering:  true,
-      responsive: true
+  $('#dataTable').DataTable( {      
+    buttons: ['copy', 'excel', 'pdf','print'],
+    layout: {topStart: 'buttons'},
+    paging: true,
+    select: true,    
+    ordering:  true,   
+    responsive: true
   } );
 } );
+
 function dark_mode(){
   var element = document.body;
   element.dataset.bsTheme = element.dataset.bsTheme == "light" ? "dark" : "light";
 }
+setTimeout(() => {
+    const elem = document.getElementById("alert");
+    elem.parentNode.removeChild(elem);}, 2000);      
 </script>
+
 {% endblock script_manage %}

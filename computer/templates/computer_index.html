@@ -41,7 +41,7 @@
                           <td>{{item.buy}}</td>
                           <td>{{item.note}}</td>
                           <td>
-                            <a href="/computer/{{item.pcname}}/"><img src="{% static 'icons/detail.png' %}" alt="detail" width="30px" height="25px"></a>
+                            <a href="/computer/{{item.pcname}}/"><img src="{% static 'icons/detail.png' %}" alt="detail" width="20px" height="20px"></a>
                           </td>
                         </tr>
                         {% endfor %}
@@ -49,38 +49,13 @@
                   </table>
         </div>
 
-        
-        <!-- {% if messages %}
-        <div
-          id="alert"
-          class="alert alert-success fade show"
-          role="alert"
-        >
-          {% for mes in messages %} {{mes}} {% endfor %}
-        </div>
-        {% endif %} -->
-    
-    <!-- <script>
-      setTimeout(() => {
-        const elem = document.getElementById("alert");
-        elem.parentNode.removeChild(elem);
-      }, 2000);
-      window.setTimeout( function() {
-        window.location.reload();
-      }, 5000);
-    </script> -->
 {% endblock index %}
 {% block script_index %}
 <script>
   $(document).ready(function() {
-  $('#dataTable').DataTable( {
-    // dom: 'Bfrtip',
-    buttons: [
-        'copy', 'excel', 'pdf'
-    ],
-    layout: {
-        topStart: 'buttons'
-    },
+  $('#dataTable').DataTable( {    
+    buttons: ['copy', 'excel', 'pdf','print'],
+    layout: {topStart: 'buttons'},
     paging: true,
     select: true,    
     ordering:  true,   
