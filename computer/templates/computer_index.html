@@ -13,7 +13,7 @@
               <thead>
                           <tr>
                               <th>ID</th>
-                              <th>PC NAME</th>
+                              <th class="fw-bold">PC NAME</th>
                               <th>USERNAME</th>
                               <th>MSNV</th>
                               <th>HỌ TÊN</th>
@@ -30,7 +30,7 @@
                         {% for item in computer %}
                         <tr>
                           <td>{{item.id}}</td>
-                          <td>{{item.pcname}}</td>
+                          <td class="fw-bold">{{item.pcname}}</td>
                           <td>{{item.username}}</td>
                           <td>{{item.userid}}</td>
                           <td>{{item.name}}</td>

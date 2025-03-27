@@ -7,21 +7,7 @@ from django.contrib.auth import logout
 
 @login_not_required
 def index(request):    
-    computer = Computer_TXTS.objects.all()
-    if request.method == 'POST':
-        pcname = request.POST['pcname']
-        username = request.POST['username']
-        userid = request.POST['userid']
-        name = request.POST['name']
-        job = request.POST['job']
-        department = request.POST['department']
-        note = request.POST['note']
-
-        computer = Computer_TXTS(pcname=pcname,username=username,userid=userid,name=name,job=job,department=department,note=note)
-        computer.save()
-        messages.success(request,'Máy tính đã được thêm thành công!')
-        return redirect('/')
-    
+    computer = Computer_TXTS.objects.all()        
     return render(request, 'computer_index.html',{'computer': computer})
 
 @login_required
@@ -33,12 +19,21 @@ def computer_manage(request):
         username = request.POST['username']
         userid = request.POST['userid']
         name = request.POST['name']
+        phone = request.POST['phone']
+        cd = request.POST['cd']
         job = request.POST['job']
         department = request.POST['department']
+        buy = request.POST['buy']
+        mainboard = request.POST['mainboard']
+        cpu = request.POST['cpu']
+        ram = request.POST['ram']
+        disk = request.POST['disk']
+        vga = request.POST['vga']
+        monitor = request.POST['monitor']
         note = request.POST['note']
 
 
-        computer = Computer_TXTS(pcname=pcname,username=username,userid=userid,name=name,job=job,department=department,note=note)
+        computer = Computer_TXTS(pcname=pcname,username=username,userid=userid,name=name,phone=phone,cd=cd,job=job,department=department,buy=buy,mainboard=mainboard,cpu=cpu,ram=ram,disk=disk,vga=vga,monitor=monitor,note=note)
         computer.save()
         messages.success(request,'Máy tính đã được thêm thành công!')
         return redirect('/computer/manage')
@@ -53,14 +48,23 @@ def computer_update(request, pcname):
         computer.username = request.POST['username']
         computer.userid = request.POST['userid']
         computer.name = request.POST['name']
+        computer.phone = request.POST['phone']
+        computer.cd = request.POST['cd']
         computer.job = request.POST['job']
         computer.department = request.POST['department']
+        computer.buy = request.POST['buy']
+        computer.mainboard = request.POST['mainboard']
+        computer.cpu = request.POST['cpu']
+        computer.ram = request.POST['ram']
+        computer.disk = request.POST['disk']
+        computer.vga = request.POST['vga']
+        computer.monitor = request.POST['monitor']
         computer.note = request.POST['note']       
         computer.save()
 
         messages.success(request,'Cập nhật thành công!')
 
-        return redirect('/computer/manage')
+        return redirect('/computer/manage')     
     return render(request, 'computer_update.html',{
         'computer': computer
     })
