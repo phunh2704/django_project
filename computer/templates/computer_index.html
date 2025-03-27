@@ -8,7 +8,7 @@
 {% block index %}        
       
         <div class="container-fluid">
-            <table class="table border border-success border-3 align-middle" id="dataTable" cellspacing="0" data-order='[[ 1, "asc" ]]' data-page-length='10'>
+            <table class="table border border-success border-3 align-middle fs-6" id="dataTable" cellspacing="0" data-order='[[ 1, "asc" ]]' data-page-length='10'>
               <thead>
                           <tr>
                               <th>ID</th>
@@ -16,10 +16,12 @@
                               <th>USERNAME</th>
                               <th>MSNV</th>
                               <th>HỌ TÊN</th>
+                              <th>CD</th>
                               <th>VỊ TRÍ CV</th>
                               <th>PHÒNG BAN</th>
+                              <th>ĐIỆN THOẠI</th>                              
+                              <th>NĂM MUA</th>
                               <th>GHI CHÚ</th>
-                              
                           </tr>
               </thead>                      
                       <tbody>
@@ -30,10 +32,12 @@
                           <td>{{item.username}}</td>
                           <td>{{item.userid}}</td>
                           <td>{{item.name}}</td>
+                          <td>{{item.cd}}</td>
                           <td>{{item.job}}</td>              
                           <td>{{item.department}}</td>
+                          <td>{{item.phone}}</td>                          
+                          <td>{{item.buy}}</td>
                           <td>{{item.note}}</td>
-                          
                         </tr>
                         {% endfor %}
                       </tbody>

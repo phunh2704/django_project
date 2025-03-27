@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Computer
+from .models import Computer_TXTS
 from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required, login_not_required
@@ -7,7 +7,7 @@ from django.contrib.auth import logout
 
 @login_not_required
 def index(request):    
-    computer = Computer.objects.all()
+    computer = Computer_TXTS.objects.all()
     if request.method == 'POST':
         pcname = request.POST['pcname']
         username = request.POST['username']
@@ -17,7 +17,7 @@ def index(request):
         department = request.POST['department']
         note = request.POST['note']
 
-        computer = Computer(pcname=pcname,username=username,userid=userid,name=name,job=job,department=department,note=note)
+        computer = Computer_TXTS(pcname=pcname,username=username,userid=userid,name=name,job=job,department=department,note=note)
         computer.save()
         messages.success(request,'Máy tính đã được thêm thành công!')
         return redirect('/')
@@ -26,7 +26,7 @@ def index(request):
 
 @login_required
 def computer_manage(request):
-    computer = Computer.objects.all()    
+    computer = Computer_TXTS.objects.all()    
 
     if request.method == 'POST':
         pcname = request.POST['pcname']
@@ -38,7 +38,7 @@ def computer_manage(request):
         note = request.POST['note']
 
 
-        computer = Computer(pcname=pcname,username=username,userid=userid,name=name,job=job,department=department,note=note)
+        computer = Computer_TXTS(pcname=pcname,username=username,userid=userid,name=name,job=job,department=department,note=note)
         computer.save()
         messages.success(request,'Máy tính đã được thêm thành công!')
         return redirect('/computer/manage')
@@ -47,7 +47,7 @@ def computer_manage(request):
 
 @login_required
 def computer_update(request, pcname):
-    computer = Computer.objects.get(pcname=pcname)
+    computer = Computer_TXTS.objects.get(pcname=pcname)
     if request.method == 'POST':
         pcname = request.POST['pcname']
         computer.username = request.POST['username']
@@ -67,14 +67,14 @@ def computer_update(request, pcname):
 
 @login_required
 def computer_delete(request, pcname):
-    computer = Computer.objects.get(pcname=pcname)
+    computer = Computer_TXTS.objects.get(pcname=pcname)
     computer.delete()
     messages.success(request,'Xóa máy tính thành công!')
     return redirect('/computer/manage')
 
 @login_not_required
 def computer_view(request, pcname):
-    computer = Computer.objects.get(pcname=pcname)
+    computer = Computer_TXTS.objects.get(pcname=pcname)
     return render(request, 'computer_view.html',{
         'computer': computer
     })
