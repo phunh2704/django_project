@@ -1,14 +1,15 @@
 {% extends "base.html" %}
-<!-- <div class="container-fluid d-flex justify-content-end align-items-center">         -->
+{% load static %}
+
 {% block nav_button %}        
-  <a href="/computer/manage" class="btn btn-primary"><i class="fa-solid fa-gears"></i> Đăng Nhập</a>
+  <a href="/computer/manage" class="btn btn-success"><img src="{% static 'icons/login.png' %}" alt="login" width="30px" height="25px"> Đăng Nhập</a>
   <div class="form-check form-switch mx-4 text-white"><input type="checkbox" class="form-check-input p-2" role="switch" id="flexSwitchCheckChecked" checked onclick="dark_mode()">Dark/Light Mode</div>
 {% endblock nav_button %}
-<!-- </div> -->
+
 {% block index %}        
       
         <div class="container-fluid">
-            <table class="table border border-success border-3 align-middle fs-6" id="dataTable" cellspacing="0" data-order='[[ 1, "asc" ]]' data-page-length='10'>
+            <table class="table border border-success border-3 align-middle fs-6" id="dataTable" cellspacing="0" data-order='[[ 1, "asc" ]]' data-page-length='15'>
               <thead>
                           <tr>
                               <th>ID</th>
@@ -22,6 +23,7 @@
                               <th>ĐIỆN THOẠI</th>                              
                               <th>NĂM MUA</th>
                               <th>GHI CHÚ</th>
+                              <th>CHI TIẾT</th>
                           </tr>
               </thead>                      
                       <tbody>
@@ -38,6 +40,9 @@
                           <td>{{item.phone}}</td>                          
                           <td>{{item.buy}}</td>
                           <td>{{item.note}}</td>
+                          <td>
+                            <a href="/computer/{{item.pcname}}/"><img src="{% static 'icons/detail.png' %}" alt="detail" width="30px" height="25px"></a>
+                          </td>
                         </tr>
                         {% endfor %}
                       </tbody>
@@ -76,7 +81,7 @@
     layout: {
         topStart: 'buttons'
     },
-    paging: false,
+    paging: true,
     select: true,    
     ordering:  true,   
     responsive: true

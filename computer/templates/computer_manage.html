@@ -1,21 +1,19 @@
 {% extends "base.html" %}
+{% load static %}
 {% block nav_button %}          
-  <a href="/computer" class="btn btn-primary"><i class="fa-solid fa-home"></i> Trang Chủ</a>
-  <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#create_product"><i class="fa-solid fa-plus"></i> Thêm PC</button>
-  <a href="/logout" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Thoát</a>
+  <a href="/computer" class="btn btn-success"><img src="{% static 'icons/home.png' %}" alt="home" width="30px" height="25px"> Trang Chủ</a>
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#create_product"><img src="{% static 'icons/add.png' %}" alt="add" width="30px" height="25px"> Thêm PC</button>
+  <a href="/logout" class="btn btn-success"><img src="{% static 'icons/signout.png' %}" alt="signout" width="30px" height="25px"> Thoát</a>
   <div class="form-check form-switch mx-4 text-white"><input type="checkbox" class="form-check-input p-2" role="switch" id="flexSwitchCheckChecked" checked onclick="dark_mode()">Dark/Light Mode</div>
  {% endblock nav_button %}
 
-{% block manage %}    
-      <div class="container-fluid d-flex justify-content-end align-items-center gap-2">        
-        
-      </div>
-        <div class="container-fluid d-flex justify-content-center flex-column">
-            <table class="table border border-success border-3 align-middle" id="dataTable" cellspacing="0" data-order='[[ 1, "asc" ]]' data-page-length='10'>
+{% block manage %}          
+        <div class="container-fluid">
+          <table class="table border border-success border-3 align-middle fs-6" id="dataTable" cellspacing="0" data-order='[[ 1, "asc" ]]' data-page-length='15'>
               <thead>
                           <tr>
                               <th>ID</th>
-                              <th>PC NAME</th>
+                              <th class="fw-bold">PC NAME</th>
                               <th>USERNAME</th>
                               <th>MSNV</th>
                               <th>HỌ TÊN</th>
@@ -29,7 +27,7 @@
                         {% for item in computer %}
                         <tr>
                           <td>{{item.id}}</td>
-                          <td>{{item.pcname}}</td>
+                          <td class="fw-bold">{{item.pcname}}</td>
                           <td>{{item.username}}</td>
                           <td>{{item.userid}}</td>
                           <td>{{item.name}}</td>
@@ -37,9 +35,9 @@
                           <td>{{item.department}}</td>
                           <td>{{item.note}}</td>
                           <td>
-                            <a href="/computer/{{item.pcname}}/" class="btn btn-secondary btn-sm">Xem</a>
-                            <a href="/computer/update/{{item.pcname}}/" class="btn btn-success btn-sm">Sửa</a>
-                            <a href="/computer/delete/{{item.pcname}}/" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')">Xóa</a>
+                            <a href="/computer/{{item.pcname}}/"><img src="{% static 'icons/detail.png' %}" alt="detail" width="30px" height="25px"></a>
+                            <a href="/computer/update/{{item.pcname}}/"><img src="{% static 'icons/edit.png' %}" alt="edit" width="30px" height="25px"></a>
+                            <a href="/computer/delete/{{item.pcname}}/" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')"><img src="{% static 'icons/remove.png' %}" alt="remove" width="25px" height="25px"></a>
                           </td>               
                         </tr>
                         {% endfor %}
@@ -125,7 +123,7 @@
         topStart: 'buttons'
       },
       select: true,      
-      paging: false,
+      paging: true,
       ordering:  true,
       responsive: true
   } );
