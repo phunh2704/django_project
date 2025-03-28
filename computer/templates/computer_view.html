@@ -38,18 +38,30 @@
                     <td>{{computer.phone}}</td>                                    
                 </tr>
                 <tr>
-                    <td class="fw-bold"><img src="{% static 'icons/job.png' %}" alt="computer" width="20px" height="20px"> Công Việc</td>                
-                    <td>{{computer.job}}</td>                                    
-                </tr>
-                <tr>
                     <td class="fw-bold"><img src="{% static 'icons/cd.png' %}" alt="computer" width="20px" height="20px"> Chức Danh</td>                
                     <td>{{computer.cd}}</td>                                    
                 </tr>
                 <tr>
+                    <td class="fw-bold"><img src="{% static 'icons/job.png' %}" alt="computer" width="20px" height="20px"> Công Việc</td>                
+                    <td>{{computer.job}}</td>                                    
+                </tr>
+                
+                <tr>
                     <td class="fw-bold"><img src="{% static 'icons/department.png' %}" alt="computer" width="20px" height="20px"> Phòng Ban</td>                
                     <td>{{computer.department}}</td>                                    
                 </tr>
+                <tr>
+                    <td class="fw-bold"><img src="{% static 'icons/note.png' %}" alt="computer" width="20px" height="20px"> Ghi Chú</td>                
+                    <td>{{computer.note}}</td>                                    
+                </tr>  
+                <tr>
+                    <td class="fw-bold"><img src="{% static 'icons/hardware.png' %}" alt="computer" width="20px" height="20px"> Cấu hình</td>                
+                    <td><button class="btn btn-success btn-sm" onclick="showHardware()">Xem chi tiết</button></td>                                    
+                </tr>
                 
+
+
+            <tbody id="hardware" style="display: none;">
                 <tr>
                     <td class="fw-bold"><img src="{% static 'icons/calendar.png' %}" alt="computer" width="20px" height="20px"> Năm Mua</td>                
                     <td>{{computer.buy}}</td>                                    
@@ -78,12 +90,19 @@
                     <td class="fw-bold"><img src="{% static 'icons/monitor.png' %}" alt="computer" width="20px" height="20px"> Monitor</td>                
                     <td>{{computer.monitor}} Inch</td>                                    
                 </tr>   
-                <tr>
-                    <td class="fw-bold"><img src="{% static 'icons/note.png' %}" alt="computer" width="20px" height="20px"> Ghi Chú</td>                
-                    <td>{{computer.note}}</td>                                    
-                </tr>             
+            </tbody>               
             </table>    
         </div>
     </div>
+<script>
+    function showHardware() {        
+        var x = document.getElementById("hardware");        
+        if (x.style.display === "none") {
+        x.style.display = "";
+        } else {
+        x.style.display = "none";
+    }
+    }    
+</script>
 </body>
 </html>
